@@ -83,7 +83,6 @@ dim(PROFILE_IV_A) # 31 sor és 321 oszlop
 PROFILE_IV_B <- subset(PROFILE_IV, (INNA_IH_RND != 1 & INNA_RND_CONTR_OUT != 1))
 dim(PROFILE_IV_B) # 411 sor és 321 oszlop
 
-
 PROFILE_V_A <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], 
                       (INNO_PRD_GD != 1 & INNO_PRD_SERV != 1 & INNO_PCS_PRD != 1 & INNO_PCS_LOG != 1 & INNO_PCS_COMM != 1 & INNO_PCS_ACCT != 1 & INNO_PCS_OPROC_EXTREL != 1 & INNO_PCS_WR_DEC_HRM != 1 & INNO_PCS_SLS_SERV != 1) & 
                         (INNA_IH_RND == 1 | INNA_RND_CONTR_OUT == 1))
@@ -93,6 +92,9 @@ PROFILE_V_B <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$
                       (INNO_PRD_GD != 1 & INNO_PRD_SERV != 1 & INNO_PCS_PRD != 1 & INNO_PCS_LOG != 1 & INNO_PCS_COMM != 1 & INNO_PCS_ACCT != 1 & INNO_PCS_OPROC_EXTREL != 1 & INNO_PCS_WR_DEC_HRM != 1 & INNO_PCS_SLS_SERV != 1) & 
                         (INNA_COMPL == 1 | INNA_ONGO == 1 | INNA_ABDN == 1) & (INNA_IH_RND != 1 & INNA_RND_CONTR_OUT != 1))
 dim(PROFILE_V_B) # 42 sor és 321 oszlop
+
+PROFILE_V <- rbind(PROFILE_V_A, PROFILE_V_B)
+dim(PROFILE_V) # 258 sor és 321 oszlop
 
 PROFILE_VI <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], 
                      (INNO_PRD_GD != 1 & INNO_PRD_SERV != 1 & INNO_PCS_PRD != 1 & INNO_PCS_LOG != 1 & INNO_PCS_COMM != 1 & INNO_PCS_ACCT != 1 & INNO_PCS_OPROC_EXTREL != 1 & INNO_PCS_WR_DEC_HRM != 1 & INNO_PCS_SLS_SERV != 1) & 
