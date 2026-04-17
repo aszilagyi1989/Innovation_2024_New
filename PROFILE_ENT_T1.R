@@ -12,7 +12,6 @@ set_ENT_T1_Profile <- function(column_name, tablename_Profile, save_filename){
   PROFILE_V_B <<- PROFILE_V_B %>% mutate(SULYOZOTT_ENT_T1 = VGMA001_SULY)
   PROFILE_VI <<- PROFILE_VI %>% mutate(SULYOZOTT_ENT_T1 = VGMA001_SULY) 
   PROFILE_VII <<- PROFILE_VII %>% mutate(SULYOZOTT_ENT_T1 = VGMA001_SULY)
-  # Nem kötelezőek
   
   for(col in 1:ncol(Profile_ENT_T1)){
     
@@ -437,312 +436,312 @@ set_ENT_T1_Profile <- function(column_name, tablename_Profile, save_filename){
     
     
     
-    # Nem kötelező INN_PF1_RND
-    if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-        & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-      
-      INN_PF <- "INN_PF1_RND"
-      TYPE_ENT_T1 <- "INN"
-      
-      for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-        
-        ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-        
-        for(i in length(NUMBER_EMPL_LIST):1){
-          
-          NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-          OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(1)], na.rm = TRUE))
-          cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-          
-        }
-        
-      }
-      
-    }
-  
-  # Nem kötelező INN_PF1_NRND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF1_NRND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(2)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  
-  
-  # Nem kötelező INN_PF2_RND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF2_RND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(3)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF2_NRND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF2_NRND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(4)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  
-  
-  # Nem kötelező INN_PF3
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF3"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(5:6)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF3_RND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF3_RND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(5)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF3_NRND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF3_NRND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(6)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  
-  
-  
-  # Nem kötelező INN_PF4
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF4"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(7:8)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF4_RND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF4_RND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(7)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF4_NRND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF4_NRND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(8)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  
-  
-  # Nem kötelező INN_PF5
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF5"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(9:10)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF5_RND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF5_RND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(9)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
-  
-  # Nem kötelező INN_PF5_NRND
-  if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
-      & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
-    
-    INN_PF <- "INN_PF5_NRND"
-    TYPE_ENT_T1 <- "INN"
-    
-    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
-      
-      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-      
-      for(i in length(NUMBER_EMPL_LIST):1){
-        
-        NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
-        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(10)], na.rm = TRUE))
-        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
-        
-      }
-      
-    }
-    
-  }
+  #   # Nem kötelező INN_PF1_RND
+  #   if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #       & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #     
+  #     INN_PF <- "INN_PF1_RND"
+  #     TYPE_ENT_T1 <- "INN"
+  #     
+  #     for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #       
+  #       ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #       
+  #       for(i in length(NUMBER_EMPL_LIST):1){
+  #         
+  #         NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #         OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(1)], na.rm = TRUE))
+  #         cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #         
+  #       }
+  #       
+  #     }
+  #     
+  #   }
+  # 
+  # # Nem kötelező INN_PF1_NRND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF1_NRND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(2)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # 
+  # 
+  # # Nem kötelező INN_PF2_RND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF2_RND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(3)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF2_NRND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF2_NRND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(4)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # 
+  # 
+  # # Nem kötelező INN_PF3
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF3"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(5:6)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF3_RND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF3_RND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(5)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF3_NRND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF3_NRND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(6)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # 
+  # 
+  # 
+  # # Nem kötelező INN_PF4
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF4"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(7:8)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF4_RND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF4_RND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(7)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF4_NRND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF4_NRND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(8)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # 
+  # 
+  # # Nem kötelező INN_PF5
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF5"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(9:10)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF5_RND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF5_RND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(9)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
+  # 
+  # # Nem kötelező INN_PF5_NRND
+  # if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
+  #     & CIS_INDICATOR != "REAS_NINN_RESC" & CIS_INDICATOR != "REAS_NINN_RESC_OTH"){
+  #   
+  #   INN_PF <- "INN_PF5_NRND"
+  #   TYPE_ENT_T1 <- "INN"
+  #   
+  #   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  #     
+  #     ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+  #     
+  #     for(i in length(NUMBER_EMPL_LIST):1){
+  #       
+  #       NUMBER_ENT_T1 <- NUMBER_EMPL_LIST[i]
+  #       OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT_T1[profile_rows[i + ((j - 1) * 4)], c(10)], na.rm = TRUE))
+  #       cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_ENT_T1, TYPE_ENT_T1, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+  #       
+  #     }
+  #     
+  #   }
+  #   
+  # }
   
 }
