@@ -47,8 +47,9 @@ ACTIVITY_PROFILE_LIST <- c("_T", "BTE", "G46TM73_INN")
 REF_AREA_LIST <- c("HU", "HU1", "HU2", "HU3", "HU11", "HU12", "HU21", "HU22", "HU23", "HU31", "HU32", "HU33", "HUZ", "HUZZ")
 
 #4 - INN
+worksheet_01$TUR_PRD_NEW <- worksheet_01$TUR_PRD_NEW_MKT + worksheet_01$TUR_PRD_NEW_ENT
 INN <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], INNO_PRD_GD == 1 | INNO_PRD_SERV == 1 | INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1 | INNA_COMPL == 1 | INNA_ONGO == 1 | INNA_ABDN == 1 | INNA_IH_RND == 1 | INNA_RND_CONTR_OUT == 1)
-dim(INN) # 3033 sor és 322 oszlop
+dim(INN) # 3027 sor és 322 oszlop
 
 #5 - PRD_ONL
 PRD_ONL <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], (INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) & (INNO_PCS_PRD != 1 & INNO_PCS_LOG != 1 & INNO_PCS_COMM != 1 & INNO_PCS_ACCT != 1 & INNO_PCS_OPROC_EXTREL != 1 & INNO_PCS_WR_DEC_HRM != 1 & INNO_PCS_SLS_SERV != 1))
@@ -64,7 +65,7 @@ dim(PRD_BPCS_ONL) # 1202 sor és 322 oszlop
 
 #9 - NINN
 NINN <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], (INNO_PRD_GD != 1 & INNO_PRD_SERV != 1 & INNO_PCS_PRD != 1 & INNO_PCS_LOG != 1 & INNO_PCS_COMM != 1 & INNO_PCS_ACCT != 1 & INNO_PCS_OPROC_EXTREL != 1 & INNO_PCS_WR_DEC_HRM != 1 & INNO_PCS_SLS_SERV != 1) & (INNA_COMPL != 1 & INNA_ONGO != 1 & INNA_ABDN != 1 & INNA_IH_RND != 1 & INNA_RND_CONTR_OUT != 1))
-dim(NINN) # 4756 sor és 322 oszlop
+dim(NINN) # 4752 sor és 322 oszlop
 
 #10 - INNO_PRD
 INNO_PRD <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], INNO_PRD_GD == 1 | INNO_PRD_SERV == 1)
@@ -155,6 +156,10 @@ dim(TUR_PRD_NEW_MKT) # 685 sor és 5 oszlop
 # TUR24 csere
 TUR_PRD_NEW_ENT <- subset(worksheet_01, INNO_PRD_NEW_ENT == 1, c("M092", "INNO_PRD_NEW_ENT", "TUR_PRD_NEW_ENT", "TOVT", "VGMA001_SULY"))
 dim(TUR_PRD_NEW_ENT) # 1554 sor és 5 oszlop
+
+TUR_PRD_NEW <- subset(worksheet_01, INNO_PRD_GD == 1 | INNO_PRD_SERV == 1, c("M092", "INNO_PRD_GD", "INNO_PRD_SERV", "TUR_PRD_NEW_MKT", "TUR_PRD_NEW_ENT", "TUR_PRD_NEW", "TOVT", "VGMA001_SULY"))
+# TUR_PRD_NEW$TUR_PRD_NEW <- TUR_PRD_NEW$TUR_PRD_NEW_MKT + TUR_PRD_NEW$TUR_PRD_NEW_ENT
+dim(TUR_PRD_NEW) # 1767 sor és 8 oszlop
 
 #T11
 #80

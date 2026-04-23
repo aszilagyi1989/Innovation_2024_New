@@ -2,33 +2,33 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
   
   if (column_name != "TUR_ONAT"){
     
-    PROFILE_I_A <<- PROFILE_I_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_I_B <<- PROFILE_I_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
-    PROFILE_II_A <<- PROFILE_II_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_II_B <<- PROFILE_II_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
-    PROFILE_III_A <<- PROFILE_III_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_III_B <<- PROFILE_III_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
-    PROFILE_IV_A <<- PROFILE_IV_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_IV_B <<- PROFILE_IV_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
-    PROFILE_V_A <<- PROFILE_V_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_V_B <<- PROFILE_V_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
-    PROFILE_VI <<- PROFILE_VI %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY) 
-    PROFILE_VII <<- PROFILE_VII %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TUR22 * VGMA001_SULY)
+    PROFILE_I_A <<- PROFILE_I_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_I_B <<- PROFILE_I_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
+    PROFILE_II_A <<- PROFILE_II_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_II_B <<- PROFILE_II_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
+    PROFILE_III_A <<- PROFILE_III_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_III_B <<- PROFILE_III_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
+    PROFILE_IV_A <<- PROFILE_IV_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_IV_B <<- PROFILE_IV_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
+    PROFILE_V_A <<- PROFILE_V_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_V_B <<- PROFILE_V_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
+    PROFILE_VI <<- PROFILE_VI %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY) 
+    PROFILE_VII <<- PROFILE_VII %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) / 100 * TOVT * VGMA001_SULY)
   
   }else{
     
-    PROFILE_I_A <<- PROFILE_I_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_I_B <<- PROFILE_I_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
-    PROFILE_II_A <<- PROFILE_II_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_II_B <<- PROFILE_II_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
-    PROFILE_III_A <<- PROFILE_III_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_III_B <<- PROFILE_III_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
-    PROFILE_IV_A <<- PROFILE_IV_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_IV_B <<- PROFILE_IV_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
-    PROFILE_V_A <<- PROFILE_V_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_V_B <<- PROFILE_V_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
-    PROFILE_VI <<- PROFILE_VI %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY) 
-    PROFILE_VII <<- PROFILE_VII %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TUR22 * VGMA001_SULY)
+    PROFILE_I_A <<- PROFILE_I_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_I_B <<- PROFILE_I_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
+    PROFILE_II_A <<- PROFILE_II_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_II_B <<- PROFILE_II_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
+    PROFILE_III_A <<- PROFILE_III_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_III_B <<- PROFILE_III_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
+    PROFILE_IV_A <<- PROFILE_IV_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_IV_B <<- PROFILE_IV_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
+    PROFILE_V_A <<- PROFILE_V_A %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_V_B <<- PROFILE_V_B %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
+    PROFILE_VI <<- PROFILE_VI %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY) 
+    PROFILE_VII <<- PROFILE_VII %>% mutate(SULYOZOTT_TUR = eval_tidy(parse_expr(column_name)) * TOVT * VGMA001_SULY)
     
   }
   
@@ -234,19 +234,22 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
     
   }
   
-  
-  INN_PF <- "NINN_ITR"
-  TYPE_ENT <- "_T"
-  
-  for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  if (column_name != "TUR_PRD_NEW" & column_name != "TUR_PRD_NEW_ENT" & column_name != "TUR_PRD_NEW_MKT"){
     
-    ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+    INN_PF <- "NINN_ITR"
+    TYPE_ENT <- "_T"
     
-    for(i in length(NUMBER_EMPL_LIST):1){
+    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
-      NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
-      OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(9:12)], na.rm = TRUE))
-      cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+      
+      for(i in length(NUMBER_EMPL_LIST):1){
+        
+        NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
+        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(9:12)], na.rm = TRUE))
+        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+        
+      }
       
     }
     
@@ -270,19 +273,22 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
     
   }
   
+  if (column_name != "TUR_PRD_NEW"){
   
-  INN_PF <- "INN_NCAP"
-  TYPE_ENT <- "_T"
-  
-  for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+    INN_PF <- "INN_NCAP"
+    TYPE_ENT <- "INN" # _T
     
-    ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-    
-    for(i in length(NUMBER_EMPL_LIST):1){
+    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
-      NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
-      OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(7:8, 11:12)], na.rm = TRUE))
-      cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+      
+      for(i in length(NUMBER_EMPL_LIST):1){
+        
+        NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
+        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(7:8, 11:12)], na.rm = TRUE))
+        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+        
+      }
       
     }
     
@@ -306,19 +312,22 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
     
   }
   
-  
-  INN_PF <- "INN_NRND"
-  TYPE_ENT <- "_T"
-  
-  for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  if (column_name != "TUR_PRD_NEW"){
     
-    ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+    INN_PF <- "INN_NRND"
+    TYPE_ENT <- "INN" # _T
     
-    for(i in length(NUMBER_EMPL_LIST):1){
+    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
-      NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
-      OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(2, 4, 6, 8, 10:12)], na.rm = TRUE))
-      cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+      
+      for(i in length(NUMBER_EMPL_LIST):1){
+        
+        NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
+        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_TUR[profile_rows[i + ((j - 1) * 4)], c(2, 4, 6, 8, 10:12)], na.rm = TRUE))
+        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+        
+      }
       
     }
     
