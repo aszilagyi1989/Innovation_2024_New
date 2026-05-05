@@ -46,8 +46,11 @@ ACTIVITY_PROFILE_LIST <- c("_T", "BTE", "G46TM73_INN")
 #For regional
 REF_AREA_LIST <- c("HU", "HU1", "HU2", "HU3", "HU11", "HU12", "HU21", "HU22", "HU23", "HU31", "HU32", "HU33", "HUZ", "HUZZ")
 
-#4 - INN
+
+# Pót mutató:
 worksheet_01$TUR_PRD_NEW <- worksheet_01$TUR_PRD_NEW_MKT + worksheet_01$TUR_PRD_NEW_ENT
+
+#4 - INN
 INN <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], INNO_PRD_GD == 1 | INNO_PRD_SERV == 1 | INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1 | INNA_COMPL == 1 | INNA_ONGO == 1 | INNA_ABDN == 1 | INNA_IH_RND == 1 | INNA_RND_CONTR_OUT == 1)
 dim(INN) # 3027 sor és 322 oszlop
 
@@ -403,4 +406,21 @@ dim(REAS_NINN_RESC_OTH) # 1607 sor és 3 oszlop
 INN_ITR <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], (INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1))
 dim(INN_ITR) # 2769 sor és 321 oszlop
 
+#T30 pót mutatók
+ECO_WENT_SG <- subset(worksheet_01, (ECO_MAT_SG == 1 | ECO_ENO_SG == 1 | ECO_POL_SG == 1 | ECO_SUB_SG == 1 | ECO_REP_SG == 1 | ECO_REC_SG == 1 | ECO_BIO_SG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
+dim(ECO_WENT_SG) # 845 sor és 322 oszlop
 
+ECO_WENT_NSG <- subset(worksheet_01, (ECO_MAT_NSG == 1 | ECO_ENO_NSG == 1 | ECO_POL_NSG == 1 | ECO_SUB_NSG == 1 | ECO_REP_NSG == 1 | ECO_REC_NSG == 1 | ECO_BIO_NSG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
+dim(ECO_WENT_NSG) # 1379 sor és 322 oszlop
+
+ECO_DUCO_SG <- subset(worksheet_01, (ECO_ENU_SG == 1 | ECO_POS_SG == 1 | ECO_REA_SG == 1 | ECO_EXT_SG == 1 | ECO_BIU_SG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
+dim(ECO_DUCO_SG) # 512 sor és 322 oszlop
+
+ECO_DUCO_NSG <- subset(worksheet_01, (ECO_ENU_NSG == 1 | ECO_POS_NSG == 1 | ECO_REA_NSG == 1 | ECO_EXT_NSG == 1 | ECO_BIU_NSG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
+dim(ECO_DUCO_NSG) # 902 sor és 322 oszlop
+
+ECO_SG <- unique(rbind(ECO_WENT_SG, ECO_DUCO_SG))
+dim(ECO_SG) # 968 sor és 322 oszlop
+
+ECO_NSG <- unique(rbind(ECO_WENT_NSG, ECO_DUCO_NSG))
+dim(ECO_NSG) # 1515 sor és 322 oszlop

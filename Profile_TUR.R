@@ -276,7 +276,13 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
   if (column_name != "TUR_PRD_NEW"){
   
     INN_PF <- "INN_NCAP"
-    TYPE_ENT <- "INN" # _T
+    if (tablename_Profile == "T10"){
+      
+      TYPE_ENT <- "INN" # _T
+    }else{
+      
+      TYPE_ENT <- "_T" #
+    }
     
     for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
@@ -315,7 +321,14 @@ set_TUR_Profile <- function(column_name, tablename_Profile, save_filename){
   if (column_name != "TUR_PRD_NEW"){
     
     INN_PF <- "INN_NRND"
-    TYPE_ENT <- "INN" # _T
+    if (tablename_Profile == "T10"){
+      
+      TYPE_ENT <- "INN" # _T
+    }
+    else{
+      
+      TYPE_ENT <- "_T"
+    }
     
     for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       

@@ -220,22 +220,23 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   }
   
-  
-  INN_PF <- "NINN_ITR"
-  TYPE_ENT <- "_T"
-  
-  for(j in 1:length(ACTIVITY_PROFILE_LIST)){
+  if (tablename_Profile != "T30") {
+    INN_PF <- "NINN_ITR"
+    TYPE_ENT <- "_T"
     
-    ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
-    
-    for(i in length(NUMBER_EMPL_LIST):1){
+    for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
-      NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
-      OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT[profile_rows[i + ((j - 1) * 4)], c(9:12)], na.rm = TRUE))
-      cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+      ACTIVITY <- ACTIVITY_PROFILE_LIST[j]
+      
+      for(i in length(NUMBER_EMPL_LIST):1){
+        
+        NUMBER_EMPL <- NUMBER_EMPL_LIST[i]
+        OBS_VALUE <-  gsub("\\.", ",", sum(Profile_ENT[profile_rows[i + ((j - 1) * 4)], c(9:12)], na.rm = TRUE))
+        cat(paste(DATAFLOW, FREQ, TIME_PERIOD, REF_AREA, TABLENAME, ACTIVITY, NUMBER_EMPL, TYPE_ENT, INN_PF, INDICATOR, CIS_INDICATOR,	OBS_VALUE, UNIT_MEASURE, UNIT_MULT, DECIMALS, sep = ";"), sep = "\n", file = save_filename, append = TRUE)
+        
+      }
       
     }
-    
   }
   
   if (CIS_INDICATOR != "REAS_NINN_NNEED" & CIS_INDICATOR != "REAS_NINN_OTH" 
@@ -262,7 +263,11 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   
   INN_PF <- "INN_NCAP"
-  TYPE_ENT <- "_T"
+  if (tablename_Profile == "T30"){
+    TYPE_ENT <- "INN"
+  }else{
+    TYPE_ENT <- "_T"
+  }
   
   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
     
@@ -302,7 +307,11 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   
   INN_PF <- "INN_NRND"
-  TYPE_ENT <- "_T"
+  if (tablename_Profile == "T30"){
+    TYPE_ENT <- "INN"
+  }else{
+    TYPE_ENT <- "_T"
+  }
   
   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
     
@@ -398,7 +407,8 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
       & CIS_INDICATOR != "COOP_RNDINN" & CIS_INDICATOR != "COOP_RND"
       & CIS_INDICATOR != "COOP_UNIV" & CIS_INDICATOR != "COOP_UNIV_NEU_NEFTA" 
       & CIS_INDICATOR != "COOP_UNIV_NAT" & CIS_INDICATOR != "COOP_UNIV_EU_EFTA" 
-      & CIS_INDICATOR != "TAX_CRED_RNDINN"){
+      & CIS_INDICATOR != "TAX_CRED_RNDINN" & CIS_INDICATOR != "FUND_IG_LOAN_RNDINN"
+      & tablename_Profile != "T30"){
     
     INN_PF <- "NINN_PF6"
     TYPE_ENT <- "NINN"
