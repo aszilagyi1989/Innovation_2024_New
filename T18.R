@@ -27,7 +27,7 @@ expression <- c("is.na(INN$COOP_RND) == FALSE & INN$COOP_RND == 1",
                 "INN$M092 %in% COOP_PRV_CLCU$M092",
                 "INN$M092 %in% COOP_PRV_COMP$M092",
                 "INN$M092 %in% COOP_PRV_OTH$M092",
-                "INN$M092 %in% COOP_EG$M092",
+                "INN$M092 %in% COOP_PRV_EG$M092",
                 "INN$M092 %in% COOP_UNIV$M092",
                 "INN$M092 %in% COOP_GOV_RI$M092",
                 "INN$M092 %in% COOP_PUB_CLCU$M092",
@@ -93,7 +93,7 @@ expression2 <- c("COOP_RND",
                  "COOP_PRV_CLCU", 
                  "COOP_PRV_COMP", 
                  "COOP_PRV_OTH", 
-                 "COOP_EG", 
+                 "COOP_PRV_EG", 
                  "COOP_UNIV", 
                  "COOP_GOV_RI", 
                  "COOP_PUB_CLCU", 
@@ -401,7 +401,7 @@ expression <- c("is.na(NINN$COOP_RND) == FALSE & NINN$COOP_RND == 1",
                 "NINN$M092 %in% COOP_PRV_CLCU$M092",
                 "NINN$M092 %in% COOP_PRV_COMP$M092",
                 "NINN$M092 %in% COOP_PRV_OTH$M092",
-                "NINN$M092 %in% COOP_EG$M092",
+                "NINN$M092 %in% COOP_PRV_EG$M092",
                 "NINN$M092 %in% COOP_UNIV$M092",
                 "NINN$M092 %in% COOP_GOV_RI$M092",
                 "NINN$M092 %in% COOP_PUB_CLCU$M092",
@@ -740,10 +740,14 @@ Aggregate_NINN$OBS_VALUE <- as.character(Aggregate_NINN$OBS_VALUE)
 Aggregate_NINN[, "OBS_VALUE"] <- gsub("\\.", ",", Aggregate_NINN[, "OBS_VALUE"])
 Aggregate_NINN$OBS_VALUE[is.na(Aggregate_NINN$OBS_VALUE)] <- ""
 
+result_T18_DT_FINAL[result_T18_DT_FINAL$ACTIVITY == "G" | result_T18_DT_FINAL$ACTIVITY == "M", "OBS_VALUE"] <- ""
+Aggregate_INN[Aggregate_INN$ACTIVITY == "G" | Aggregate_INN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+Aggregate_NINN[Aggregate_NINN$ACTIVITY == "G" | Aggregate_NINN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+
 write.table(rbind(result_T18_DT_FINAL, Aggregate_INN, Aggregate_NINN), T18_SDMX_FINAL_RESULT, sep = ";", quote = FALSE, row.names = FALSE, append = FALSE)
 
 set_ENT_Profile("as.numeric(COOP_ALL)", "T18", T18_SDMX_FINAL_RESULT)
-set_ENT_Profile("as.numeric(COOP_EG)", "T18", T18_SDMX_FINAL_RESULT)
+set_ENT_Profile("as.numeric(COOP_PRV_EG)", "T18", T18_SDMX_FINAL_RESULT)
 set_ENT_Profile("as.numeric(COOP_PRV_EG_EU_EFTA)", "T18", T18_SDMX_FINAL_RESULT)
 set_ENT_Profile("as.numeric(COOP_PRV_EG_NAT)", "T18", T18_SDMX_FINAL_RESULT)
 set_ENT_Profile("as.numeric(COOP_PRV_EG_NEU_NEFTA)", "T18", T18_SDMX_FINAL_RESULT)

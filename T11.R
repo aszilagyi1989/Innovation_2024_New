@@ -568,4 +568,8 @@ Aggregate_NINN$OBS_VALUE <- as.character(Aggregate_NINN$OBS_VALUE)
 Aggregate_NINN[, "OBS_VALUE"] <- gsub("\\.", ",", Aggregate_NINN[, "OBS_VALUE"])
 Aggregate_NINN$OBS_VALUE[is.na(Aggregate_NINN$OBS_VALUE)] <- ""
 
+result_T11_DT_FINAL[result_T11_DT_FINAL$ACTIVITY == "G" | result_T11_DT_FINAL$ACTIVITY == "M", "OBS_VALUE"] <- ""
+Aggregate_INN[Aggregate_INN$ACTIVITY == "G" | Aggregate_INN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+Aggregate_NINN[Aggregate_NINN$ACTIVITY == "G" | Aggregate_NINN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+
 write.table(rbind(result_T11_DT_FINAL, Aggregate_INN, Aggregate_NINN), T11_SDMX_FINAL_RESULT, sep = ";", quote = FALSE, row.names = FALSE, append = FALSE)

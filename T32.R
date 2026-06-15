@@ -8,7 +8,7 @@ T32_SDMX_FINAL_RESULT <- "T32_SDMX_ALL_FINAL_RESULT.txt"
 TABLENAME <- "T32"
 REF_AREA <- "HU"
 TYPE_ENT <- "INN"
-INN_PF <- "_Z"
+INN_PF <- "_T"
 INDICATOR <- "ENT"
 
 UNIT_MEASURE <- "PN"
@@ -526,12 +526,12 @@ Aggregate_NINN <- Aggregate_NINN[(Aggregate_NINN$ACTIVITY != "F41" & Aggregate_N
 
 Aggregate_INN[Aggregate_INN$ACTIVITY == "A" | Aggregate_INN$ACTIVITY == "A01" | Aggregate_INN$ACTIVITY == "A02" | Aggregate_INN$ACTIVITY == "A03" | Aggregate_INN$ACTIVITY == "F" | Aggregate_INN$ACTIVITY == "G45" | Aggregate_INN$ACTIVITY == "G47" | Aggregate_INN$ACTIVITY == "I" | Aggregate_INN$ACTIVITY == "L" | Aggregate_INN$ACTIVITY == "M69" | Aggregate_INN$ACTIVITY == "M70" | Aggregate_INN$ACTIVITY == "M74" | Aggregate_INN$ACTIVITY == "M75" | Aggregate_INN$ACTIVITY == "N" | Aggregate_INN$ACTIVITY == "N77" | Aggregate_INN$ACTIVITY == "N78" | Aggregate_INN$ACTIVITY == "N79" | Aggregate_INN$ACTIVITY == "N80" | Aggregate_INN$ACTIVITY == "N81" | Aggregate_INN$ACTIVITY == "N82", "OBS_VALUE"] <- ""
 Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "GTN" | (ACTIVITY == "GTN" & (NUMBER_EMPL == "_T")))
-Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "G" & ACTIVITY != "M")
+# Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "G" & ACTIVITY != "M")
 Aggregate_INN <- subset(Aggregate_INN, (TYPE_ENT == "INN" & (CIS_INDICATOR == 'REAS_NMINN_NNEED' | CIS_INDICATOR == 'REAS_NMINN_OTH' | CIS_INDICATOR == 'REAS_NMINN_RESC' | CIS_INDICATOR == 'REAS_NMINN_RESC_OTH')) | (TYPE_ENT == "NINN" & (CIS_INDICATOR == 'REAS_NINN_NNEED' | CIS_INDICATOR == 'REAS_NINN_OTH' | CIS_INDICATOR == 'REAS_NINN_RESC' | CIS_INDICATOR == 'REAS_NINN_RESC_OTH')))
 
 Aggregate_NINN[Aggregate_NINN$ACTIVITY == "A" | Aggregate_NINN$ACTIVITY == "A01" | Aggregate_NINN$ACTIVITY == "A02" | Aggregate_NINN$ACTIVITY == "A03" | Aggregate_NINN$ACTIVITY == "F" | Aggregate_NINN$ACTIVITY == "G45" | Aggregate_NINN$ACTIVITY == "G47" | Aggregate_NINN$ACTIVITY == "I" | Aggregate_NINN$ACTIVITY == "L" | Aggregate_NINN$ACTIVITY == "M69" | Aggregate_NINN$ACTIVITY == "M70" | Aggregate_NINN$ACTIVITY == "M74" | Aggregate_NINN$ACTIVITY == "M75" | Aggregate_NINN$ACTIVITY == "N" | Aggregate_NINN$ACTIVITY == "N77" | Aggregate_NINN$ACTIVITY == "N78" | Aggregate_NINN$ACTIVITY == "N79" | Aggregate_NINN$ACTIVITY == "N80" | Aggregate_NINN$ACTIVITY == "N81" | Aggregate_NINN$ACTIVITY == "N82", "OBS_VALUE"] <- ""
 Aggregate_NINN <- subset(Aggregate_NINN, ACTIVITY != "GTN" | (ACTIVITY == "GTN" & (NUMBER_EMPL == "_T")))
-Aggregate_NINN <- subset(Aggregate_NINN, ACTIVITY != "G" & ACTIVITY != "M")
+# Aggregate_NINN <- subset(Aggregate_NINN, ACTIVITY != "G" & ACTIVITY != "M")
 Aggregate_NINN <- subset(Aggregate_NINN, (TYPE_ENT == "INN" & (CIS_INDICATOR == 'REAS_NMINN_NNEED' | CIS_INDICATOR == 'REAS_NMINN_OTH' | CIS_INDICATOR == 'REAS_NMINN_RESC' | CIS_INDICATOR == 'REAS_NMINN_RESC_OTH')) | (TYPE_ENT == "NINN" & (CIS_INDICATOR == 'REAS_NINN_NNEED' | CIS_INDICATOR == 'REAS_NINN_OTH' | CIS_INDICATOR == 'REAS_NINN_RESC' | CIS_INDICATOR == 'REAS_NINN_RESC_OTH')))
 
 
@@ -544,6 +544,9 @@ Aggregate_NINN <- as.data.frame(Aggregate_NINN)
 Aggregate_NINN$OBS_VALUE <- as.character(Aggregate_NINN$OBS_VALUE)
 Aggregate_NINN[, "OBS_VALUE"] <- gsub("\\.", ",", Aggregate_NINN[, "OBS_VALUE"])
 Aggregate_NINN$OBS_VALUE[is.na(Aggregate_NINN$OBS_VALUE)] <- ""
+
+Aggregate_INN[Aggregate_INN$ACTIVITY == "G" | Aggregate_INN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+Aggregate_NINN[Aggregate_NINN$ACTIVITY == "G" | Aggregate_NINN$ACTIVITY == "M", "OBS_VALUE"] <- ""
 
 write.table(rbind(Aggregate_INN, Aggregate_NINN), T32_SDMX_FINAL_RESULT, sep = ";", quote = FALSE, row.names = FALSE, append = FALSE)
 

@@ -873,6 +873,9 @@ result_Aggregate[result_Aggregate$UNIT_MEASURE == "EUR", "UNIT_MULT"] <- "3"
 result_Aggregate$OBS_VALUE <- as.character(result_Aggregate$OBS_VALUE)
 result_Aggregate[, "OBS_VALUE"] <- gsub("\\.", ",", result_Aggregate[, "OBS_VALUE"])
 result_Aggregate[result_Aggregate$ACTIVITY == "A" | result_Aggregate$ACTIVITY == "A01" | result_Aggregate$ACTIVITY == "A02" | result_Aggregate$ACTIVITY == "A03" | result_Aggregate$ACTIVITY == "F" | result_Aggregate$ACTIVITY == "G45" | result_Aggregate$ACTIVITY == "G47" | result_Aggregate$ACTIVITY == "I" | result_Aggregate$ACTIVITY == "L" | result_Aggregate$ACTIVITY == "M69" | result_Aggregate$ACTIVITY == "M70" | result_Aggregate$ACTIVITY == "M74" | result_Aggregate$ACTIVITY == "M75" | result_Aggregate$ACTIVITY == "N" | result_Aggregate$ACTIVITY == "N77" | result_Aggregate$ACTIVITY == "N78" | result_Aggregate$ACTIVITY == "N79" | result_Aggregate$ACTIVITY == "N80" | result_Aggregate$ACTIVITY == "N81" | result_Aggregate$ACTIVITY == "N82", "OBS_VALUE"] <- ""
+
+result_Aggregate[result_Aggregate$ACTIVITY == "G" | result_Aggregate$ACTIVITY == "M", "OBS_VALUE"] <- ""
+
 write.table(result_Aggregate, T1_SDMX_RESULT, sep = ";", quote = FALSE, row.names = FALSE, col.names = FALSE, append = TRUE)
 INN_T01 <- result_Aggregate
 
@@ -1572,6 +1575,9 @@ result_Aggregate[result_Aggregate$UNIT_MEASURE == "EUR", "UNIT_MULT"] <- "3"
 result_Aggregate$OBS_VALUE <- as.character(result_Aggregate$OBS_VALUE)
 result_Aggregate[, "OBS_VALUE"] <- gsub("\\.", ",", result_Aggregate[, "OBS_VALUE"])
 result_Aggregate[result_Aggregate$ACTIVITY == "A" | result_Aggregate$ACTIVITY == "A01" | result_Aggregate$ACTIVITY == "A02" | result_Aggregate$ACTIVITY == "A03" | result_Aggregate$ACTIVITY == "F" | result_Aggregate$ACTIVITY == "G45" | result_Aggregate$ACTIVITY == "G47" | result_Aggregate$ACTIVITY == "I" | result_Aggregate$ACTIVITY == "L" | result_Aggregate$ACTIVITY == "M69" | result_Aggregate$ACTIVITY == "M70" | result_Aggregate$ACTIVITY == "M74" | result_Aggregate$ACTIVITY == "M75" | result_Aggregate$ACTIVITY == "N" | result_Aggregate$ACTIVITY == "N77" | result_Aggregate$ACTIVITY == "N78" | result_Aggregate$ACTIVITY == "N79" | result_Aggregate$ACTIVITY == "N80" | result_Aggregate$ACTIVITY == "N81" | result_Aggregate$ACTIVITY == "N82", "OBS_VALUE"] <- ""
+
+result_Aggregate[result_Aggregate$ACTIVITY == "G" | result_Aggregate$ACTIVITY == "M", "OBS_VALUE"] <- ""
+
 write.table(result_Aggregate, T1_SDMX_RESULT, sep = ";", quote = FALSE, row.names = FALSE, col.names = FALSE, append = TRUE)
 NINN_T01 <- result_Aggregate
 

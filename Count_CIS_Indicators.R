@@ -243,9 +243,9 @@ COOP_PRV_OTH <- subset(worksheet_01, COOP_PRV_OTH_NAT == 1 | COOP_PRV_OTH_EU_EFT
 dim(COOP_PRV_OTH) # 325 sor és 4 oszlop
 
 #39
-COOP_EG <- subset(worksheet_01, COOP_PRV_EG_NAT == 1 | COOP_PRV_EG_EU_EFTA == 1 | COOP_PRV_EG_NEU_NEFTA == 1, c("M092", "COOP_PRV_EG_NAT", "COOP_PRV_EG_EU_EFTA", "COOP_PRV_EG_NEU_NEFTA"))
+COOP_PRV_EG <- subset(worksheet_01, COOP_PRV_EG_NAT == 1 | COOP_PRV_EG_EU_EFTA == 1 | COOP_PRV_EG_NEU_NEFTA == 1, c("M092", "COOP_PRV_EG_NAT", "COOP_PRV_EG_EU_EFTA", "COOP_PRV_EG_NEU_NEFTA"))
 # COOP_EG_NAT == 1 | COOP_EG_EU_EFTA == 1 | COOP_EG_NEU_NEFTA == 1, c("M092", "COOP_EG_NAT", "COOP_EG_EU_EFTA", "COOP_EG_NEU_NEFTA")
-dim(COOP_EG) # 295 sor és 4 oszlop
+dim(COOP_PRV_EG) # 295 sor és 4 oszlop
 
 #40
 COOP_UNIV <- subset(worksheet_01, COOP_UNIV_NAT == 1 | COOP_UNIV_EU_EFTA == 1 | COOP_UNIV_NEU_NEFTA == 1, c("M092", "COOP_UNIV_NAT", "COOP_UNIV_EU_EFTA", "COOP_UNIV_NEU_NEFTA"))
@@ -424,3 +424,5 @@ dim(ECO_SG) # 968 sor és 322 oszlop
 
 ECO_NSG <- unique(rbind(ECO_WENT_NSG, ECO_DUCO_NSG))
 dim(ECO_NSG) # 1515 sor és 322 oszlop
+
+worksheet_01$COOP_PRV_EG

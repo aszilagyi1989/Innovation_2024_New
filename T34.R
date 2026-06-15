@@ -7,7 +7,7 @@ T34_SDMX_FINAL_RESULT <- "T34_SDMX_ALL_FINAL_RESULT.txt"
 TABLENAME <- "T34"
 REF_AREA <- "HU"
 TYPE_ENT <- "INN"
-INN_PF <- "_Z"
+INN_PF <- "_T"
 INDICATOR <- "ENT"
 
 UNIT_MEASURE <- "PN"
@@ -32,6 +32,7 @@ expression <- c("is.na(INN$INNO_PRD_GD) == FALSE & INN$INNO_PRD_GD == 1",
                 "is.na(INN$INNA_ONGO) == FALSE & INN$INNA_ONGO == 1",
                 "is.na(INN$INNA_ABDN) == FALSE & INN$INNA_ABDN == 1",
                 "is.na(INN$INNA_COMPL) == FALSE & INN$INNA_COMPL == 1",
+                "INN$M092 %in% INNO_BPCS$M092",
                 "INN$M092 %in% INNO_PRD$M092",
                 "INN$M092 %in% PRDBPCS_COMPL$M092",
                 "INN$M092 %in% PRD_NEW_ENT_ONL$M092",
@@ -55,6 +56,7 @@ expression2 <- c("INNO_PRD_GD",
                   "INNA_ONGO", 
                   "INNA_ABDN", 
                   "INNA_COMPL", 
+                  "INNO_BPCS",
                   "INNO_PRD", 
                   "PRDBPCS_COMPL", 
                   "PRD_NEW_ENT_ONL", 
@@ -304,11 +306,14 @@ Aggregate_INN <- Aggregate_INN[(Aggregate_INN$ACTIVITY != "F41" & Aggregate_INN$
 
 Aggregate_INN[Aggregate_INN$ACTIVITY == "A" | Aggregate_INN$ACTIVITY == "A01" | Aggregate_INN$ACTIVITY == "A02" | Aggregate_INN$ACTIVITY == "A03" | Aggregate_INN$ACTIVITY == "F" | Aggregate_INN$ACTIVITY == "G45" | Aggregate_INN$ACTIVITY == "G47" | Aggregate_INN$ACTIVITY == "I" | Aggregate_INN$ACTIVITY == "L" | Aggregate_INN$ACTIVITY == "M69" | Aggregate_INN$ACTIVITY == "M70" | Aggregate_INN$ACTIVITY == "M74" | Aggregate_INN$ACTIVITY == "M75" | Aggregate_INN$ACTIVITY == "N" | Aggregate_INN$ACTIVITY == "N77" | Aggregate_INN$ACTIVITY == "N78" | Aggregate_INN$ACTIVITY == "N79" | Aggregate_INN$ACTIVITY == "N80" | Aggregate_INN$ACTIVITY == "N81" | Aggregate_INN$ACTIVITY == "N82", "OBS_VALUE"] <- ""
 Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "GTN" | (ACTIVITY == "GTN" & (NUMBER_EMPL == "_T")))
-Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "G" & ACTIVITY != "M")
+Aggregate_INN <- subset(Aggregate_INN, !(CIS_INDICATOR == "INNO_PRD" & ACTIVITY %in% c("_T", "BTE", "G46TM73_INN")))
+# Aggregate_INN <- subset(Aggregate_INN, ACTIVITY != "G" & ACTIVITY != "M")
 
 Aggregate_INN <- as.data.frame(Aggregate_INN)
 Aggregate_INN$OBS_VALUE <- as.character(Aggregate_INN$OBS_VALUE)
 Aggregate_INN[, "OBS_VALUE"] <- gsub("\\.", ",", Aggregate_INN[, "OBS_VALUE"])
 Aggregate_INN$OBS_VALUE[is.na(Aggregate_INN$OBS_VALUE)] <- ""
+
+Aggregate_INN[Aggregate_INN$ACTIVITY == "G" | Aggregate_INN$ACTIVITY == "M", "OBS_VALUE"] <- ""
 
 write.table(Aggregate_INN, T34_SDMX_FINAL_RESULT, sep = ";", quote = FALSE, row.names = FALSE, append = FALSE)

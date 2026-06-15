@@ -220,9 +220,17 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   }
   
-  if (tablename_Profile != "T30") {
+  if (tablename_Profile != "T30" | tablename_Profile == "T18") {
     INN_PF <- "NINN_ITR"
-    TYPE_ENT <- "_T"
+    if (column_name == "REAS_NMINN_RESC" | column_name == "REAS_NMINN_OTH" | column_name == "REAS_NMINN_NNEED" | column_name == "REAS_NMINN_RESC_OTH" | column_name == "FUND_AUT_LOC_REG_RNDINN" | column_name == "FUND_DEBT_SUCC_RNDINN" | column_name == "FUND_EQUIT_SUCC_RNDINN" | column_name == "FUND_EU_HP_RNDINN" | column_name == "FUND_EU_OTH_RNDINN" | column_name == "FUND_FOR_RNDINN" | column_name == "FUND_GOV_CTL_RNDINN"){
+      TYPE_ENT <- "INN"
+    }
+    else if (column_name == "REAS_NINN_RESC" | column_name == "REAS_NINN_OTH" | column_name == "REAS_NINN_NNEED" | column_name == "REAS_NINN_RESC_OTH"){
+      TYPE_ENT <- "NINN"
+    }
+    else{
+      TYPE_ENT <- "_T"
+    }
     
     for(j in 1:length(ACTIVITY_PROFILE_LIST)){
       
@@ -263,10 +271,18 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   
   INN_PF <- "INN_NCAP"
-  if (tablename_Profile == "T30"){
+  if (tablename_Profile == "T30" | tablename_Profile == "T18"){
     TYPE_ENT <- "INN"
   }else{
-    TYPE_ENT <- "_T"
+    if (column_name == "REAS_NMINN_RESC" | column_name == "REAS_NMINN_OTH" | column_name == "REAS_NMINN_NNEED" | column_name == "REAS_NMINN_RESC_OTH" | column_name == "FUND_AUT_LOC_REG_RNDINN" | column_name == "FUND_DEBT_SUCC_RNDINN" | column_name == "FUND_EQUIT_SUCC_RNDINN" | column_name == "FUND_EU_HP_RNDINN" | column_name == "FUND_EU_OTH_RNDINN" | column_name == "FUND_FOR_RNDINN" | column_name == "FUND_GOV_CTL_RNDINN"){
+      TYPE_ENT <- "INN"
+    }
+    else if (column_name == "REAS_NINN_RESC" | column_name == "REAS_NINN_OTH" | column_name == "REAS_NINN_NNEED" | column_name == "REAS_NINN_RESC_OTH"){
+      TYPE_ENT <- "NINN"
+    }
+    else{
+      TYPE_ENT <- "_T"
+    }
   }
   
   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
@@ -307,10 +323,18 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
   
   
   INN_PF <- "INN_NRND"
-  if (tablename_Profile == "T30"){
+  if (tablename_Profile == "T30" | tablename_Profile == "T18"){
     TYPE_ENT <- "INN"
   }else{
-    TYPE_ENT <- "_T"
+    if (column_name == "REAS_NMINN_RESC" | column_name == "REAS_NMINN_OTH" | column_name == "REAS_NMINN_NNEED" | column_name == "REAS_NMINN_RESC_OTH" | column_name == "FUND_AUT_LOC_REG_RNDINN" | column_name == "FUND_DEBT_SUCC_RNDINN" | column_name == "FUND_EQUIT_SUCC_RNDINN" | column_name == "FUND_EU_HP_RNDINN" | column_name == "FUND_EU_OTH_RNDINN" | column_name == "FUND_FOR_RNDINN" | column_name == "FUND_GOV_CTL_RNDINN"){
+      TYPE_ENT <- "INN"
+    }
+    else if (column_name == "REAS_NINN_RESC" | column_name == "REAS_NINN_OTH" | column_name == "REAS_NINN_NNEED" | column_name == "REAS_NINN_RESC_OTH"){
+      TYPE_ENT <- "NINN"
+    }
+    else{
+      TYPE_ENT <- "_T"
+    }
   }
   
   for(j in 1:length(ACTIVITY_PROFILE_LIST)){
@@ -379,7 +403,7 @@ set_ENT_Profile <- function(column_name, tablename_Profile, save_filename){
       & CIS_INDICATOR != "FUND_GOV_CTL_RNDINN" & CIS_INDICATOR != "FUND_FOR_RNDINN" 
       & CIS_INDICATOR != "FUND_EU_OTH_RNDINN" & CIS_INDICATOR != "REAS_NMINN_RESC" 
       & CIS_INDICATOR != "REAS_NMINN_RESC_OTH" & CIS_INDICATOR != "REAS_NMINN_OTH" 
-      & CIS_INDICATOR != "REAS_NMINN_NNEED" & CIS_INDICATOR != "COOP_EG" 
+      & CIS_INDICATOR != "REAS_NMINN_NNEED" & CIS_INDICATOR != "COOP_PRV_EG" 
       & CIS_INDICATOR != "COOP_PRV_EG_EU_EFTA" & CIS_INDICATOR != "COOP_PRV_EG_NAT" 
       & CIS_INDICATOR != "COOP_PRV_EG_NEU_NEFTA" & CIS_INDICATOR != "COOP_EU_EFTA"
       & CIS_INDICATOR != "COOP_GOV_RI" & CIS_INDICATOR != "COOP_GOV_RI_EU_EFTA"

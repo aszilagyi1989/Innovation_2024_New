@@ -326,6 +326,8 @@ Aggregate_INN$OBS_VALUE <- as.character(Aggregate_INN$OBS_VALUE)
 Aggregate_INN[, "OBS_VALUE"] <- gsub("\\.", ",", Aggregate_INN[, "OBS_VALUE"])
 Aggregate_INN$OBS_VALUE[is.na(Aggregate_INN$OBS_VALUE)] <- ""
 
+Aggregate_INN[Aggregate_INN$ACTIVITY == "G" | Aggregate_INN$ACTIVITY == "M", "OBS_VALUE"] <- ""
+
 write.table(Aggregate_INN, T30_SDMX_FINAL_RESULT, sep = ";", quote = FALSE, row.names = FALSE, append = FALSE)
 
 set_ENT_Profile("ECO_SG", "T30", T30_SDMX_FINAL_RESULT)

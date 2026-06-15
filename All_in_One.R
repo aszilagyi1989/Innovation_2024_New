@@ -1,5 +1,5 @@
-source("T1.R")
-source("T4.R") #Sokáig fut
+source("T1.R") #Sokáig fut
+source("T4.R") 
 source("T7.R")
 source("T8.R")
 source("T10.R")
@@ -7,23 +7,22 @@ source("T11.R")
 source("T14.R")
 source("T16.R")
 source("T17.R")
-source("T18.R") #Sokáig fut
+source("T18.R")
 source("T21.R")
 source("T22.R")
 source("T23.R")
 source("T24.R")
 source("T25.R")
-source("T26.R") #Sokáig fut
-source("T28.R") #Sokáig fut
+source("T26.R") 
 source("T29.R")
-source("T30.R") #Sokáig fut
-source("T31.R") #Sokáig fut
+source("T30.R") 
 source("T32.R")
 source("T33.R")
 source("T34.R")
+source("T35.R")
 
 library("data.table")
-T_ALL_SDMX_FINAL_RESULT <- "T1-34_SDMX_FINAL_RESULT.txt"
+T_ALL_SDMX_FINAL_RESULT <- "T1-35_SDMX_FINAL_RESULT.txt"
 
 T1_SDMX_FINAL_RESULT <- "T1_SDMX_ALL_FINAL_RESULT.txt"
 TXTData <- file(description = T1_SDMX_FINAL_RESULT, open = "r")
@@ -189,7 +188,7 @@ nrow(result_table)
 result_ALL <- rbind(result_ALL, result_table)
 
 
-T14_SDMX_FINAL_RESULT <- "T14_SDMX_ALL_FINAL_RESULT_ENT_EXP.txt"
+T14_SDMX_FINAL_RESULT <- "T14_SDMX_ALL_FINAL_RESULT.txt"
 TXTData <- file(description = T14_SDMX_FINAL_RESULT, open = "r")
 line <- readLines(con = TXTData)
 result_table <- data.frame()
@@ -324,7 +323,7 @@ nrow(result_table)
 result_ALL <- rbind(result_ALL, result_table)
 
 
-T22_SDMX_FINAL_RESULT <- "T22_SDMX_ALL_FINAL_RESULT_ENT_TUR.txt"
+T22_SDMX_FINAL_RESULT <- "T22_SDMX_ALL_FINAL_RESULT.txt"
 TXTData <- file(description = T22_SDMX_FINAL_RESULT, open = "r")
 line <- readLines(con = TXTData)
 result_table <- data.frame()
@@ -378,7 +377,7 @@ nrow(result_table)
 result_ALL <- rbind(result_ALL, result_table)
 
 
-T24_SDMX_FINAL_RESULT <- "T24_SDMX_ALL_FINAL_RESULT_ENT_EXP.txt"
+T24_SDMX_FINAL_RESULT <- "T24_SDMX_ALL_FINAL_RESULT.txt"
 TXTData <- file(description = T24_SDMX_FINAL_RESULT, open = "r")
 line <- readLines(con = TXTData)
 result_table <- data.frame()
@@ -453,32 +452,6 @@ for (i in 2:length(line)){
   result_table <- rbind(result_table, df)
 }
 
-names(result_table) = c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
-nrow(result_table)
-
-result_ALL <- rbind(result_ALL, result_table)
-
-
-T28_SDMX_FINAL_RESULT <- "T28_SDMX_ALL_FINAL_RESULT.txt"
-TXTData <- file(description = T28_SDMX_FINAL_RESULT, open = "r")
-line <- readLines(con = TXTData)
-result_table <- data.frame()
-
-for (i in 2:length(line)){
-  values <- strsplit(x = line[i], split = ";");
-  df <- data.frame(matrix(unlist(values), nrow = 1), stringsAsFactors = FALSE)
-  
-  if(ncol(df) != 19){
-    
-    df$X16 <- ""
-    df$X17 <- ""
-    df$X18 <- ""
-    df$X19 <- ""
-    
-  }
-  
-  result_table <- rbind(result_table, df)
-}
 
 names(result_table) = c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
 nrow(result_table)
@@ -534,32 +507,6 @@ for (i in 2:length(line)){
   result_table <- rbind(result_table, df)
 }
 
-names(result_table) = c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
-nrow(result_table)
-
-result_ALL <- rbind(result_ALL, result_table)
-
-
-T31_SDMX_FINAL_RESULT <- "T31_SDMX_ALL_FINAL_RESULT.txt"
-TXTData <- file(description = T31_SDMX_FINAL_RESULT, open = "r")
-line <- readLines(con = TXTData)
-result_table <- data.frame()
-
-for (i in 2:length(line)){
-  values <- strsplit(x = line[i], split = ";");
-  df <- data.frame(matrix(unlist(values), nrow = 1), stringsAsFactors = FALSE)
-  
-  if(ncol(df) != 19){
-    
-    df$X16 <- ""
-    df$X17 <- ""
-    df$X18 <- ""
-    df$X19 <- ""
-    
-  }
-  
-  result_table <- rbind(result_table, df)
-}
 
 names(result_table) = c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
 nrow(result_table)
@@ -647,7 +594,35 @@ nrow(result_table)
 
 result_ALL <- rbind(result_ALL, result_table)
 
-result_ALL[result_ALL$TABLENAME == "T10" & result_ALL$CIS_INDICATOR == "TUR_PRD_NEW_ENT" & result_ALL$INN_PF == "INN_PF1", "TYPE_ENT"] <- "INN"
+
+T35_SDMX_FINAL_RESULT <- "T35_SDMX_ALL_FINAL_RESULT.txt"
+TXTData <- file(description = T35_SDMX_FINAL_RESULT, open = "r")
+line <- readLines(con = TXTData)
+result_table <- data.frame()
+
+for (i in 2:length(line)){
+  values <- strsplit(x = line[i], split = ";");
+  df <- data.frame(matrix(unlist(values), nrow = 1), stringsAsFactors = FALSE)
+  
+  if(ncol(df) != 19){
+    
+    df$X16 <- ""
+    df$X17 <- ""
+    df$X18 <- ""
+    df$X19 <- ""
+    
+  }
+  
+  result_table <- rbind(result_table, df)
+}
+
+names(result_table) = c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
+nrow(result_table)
+
+result_ALL <- rbind(result_ALL, result_table)
+
+result_ALL[result_ALL$ACTIVITY == "G" | result_ALL$ACTIVITY == "M", "OBS_VALUE"] <- ""
+# result_ALL[result_ALL$TABLENAME == "T10" & result_ALL$CIS_INDICATOR == "TUR_PRD_NEW_ENT" & result_ALL$INN_PF == "INN_PF1", "TYPE_ENT"] <- "INN"
 
 result_ALL$DATAFLOW <- gsub("\"", "", result_ALL$DATAFLOW)
 result_ALL$TABLENAME <- gsub("\"", "", result_ALL$TABLENAME)
