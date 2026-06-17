@@ -15,36 +15,36 @@ UNIT_MEASURE <- "PN"
 UNIT_MULT <- "0"
 DECIMALS <- "0"
 
-expression <- c("INN$M092 %in% ECO_SG$M092",
-                "INN$M092 %in% ECO_NSG$M092",
-                "INN$M092 %in% ECO_WENT_SG$M092",
-                "INN$M092 %in% ECO_WENT_NSG$M092",
-                "is.na(INN$ECO_MAT_SG) == FALSE & INN$ECO_MAT_SG == 1", 
-                "is.na(INN$ECO_MAT_NSG) == FALSE & INN$ECO_MAT_NSG == 1", 
-                "is.na(INN$ECO_ENO_SG) == FALSE & INN$ECO_ENO_SG == 1", 
-                "is.na(INN$ECO_ENO_NSG) == FALSE & INN$ECO_ENO_NSG == 1", 
-                "is.na(INN$ECO_POL_SG) == FALSE & INN$ECO_POL_SG == 1", 
-                "is.na(INN$ECO_POL_NSG) == FALSE & INN$ECO_POL_NSG == 1", 
-                "is.na(INN$ECO_SUB_SG) == FALSE & INN$ECO_SUB_SG == 1", 
-                "is.na(INN$ECO_SUB_NSG) == FALSE & INN$ECO_SUB_NSG == 1", 
-                "is.na(INN$ECO_REP_SG) == FALSE & INN$ECO_REP_SG == 1", 
-                "is.na(INN$ECO_REP_NSG) == FALSE & INN$ECO_REP_NSG == 1", 
-                "is.na(INN$ECO_REC_SG) == FALSE & INN$ECO_REC_SG == 1", 
-                "is.na(INN$ECO_REC_NSG) == FALSE & INN$ECO_REC_NSG == 1", 
-                "is.na(INN$ECO_BIO_SG) == FALSE & INN$ECO_BIO_SG == 1", 
-                "is.na(INN$ECO_BIO_NSG) == FALSE & INN$ECO_BIO_NSG == 1", 
-                "INN$M092 %in% ECO_DUCO_SG$M092",
-                "INN$M092 %in% ECO_DUCO_NSG$M092",
-                "is.na(INN$ECO_ENU_SG) == FALSE & INN$ECO_ENU_SG == 1", 
-                "is.na(INN$ECO_ENU_NSG) == FALSE & INN$ECO_ENU_NSG == 1", 
-                "is.na(INN$ECO_POS_SG) == FALSE & INN$ECO_POS_SG == 1", 
-                "is.na(INN$ECO_POS_NSG) == FALSE & INN$ECO_POS_NSG == 1", 
-                "is.na(INN$ECO_REA_SG) == FALSE & INN$ECO_REA_SG == 1", 
-                "is.na(INN$ECO_REA_NSG) == FALSE & INN$ECO_REA_NSG == 1", 
-                "is.na(INN$ECO_EXT_SG) == FALSE & INN$ECO_EXT_SG == 1", 
-                "is.na(INN$ECO_EXT_NSG) == FALSE & INN$ECO_EXT_NSG == 1", 
-                "is.na(INN$ECO_BIU_SG) == FALSE & INN$ECO_BIU_SG == 1",
-                "is.na(INN$ECO_BIU_NSG) == FALSE & INN$ECO_BIU_NSG == 1")
+expression <- c("INN_ITR$M092 %in% ECO_SG$M092",
+                "INN_ITR$M092 %in% ECO_NSG$M092",
+                "INN_ITR$M092 %in% ECO_WENT_SG$M092",
+                "INN_ITR$M092 %in% ECO_WENT_NSG$M092",
+                "is.na(INN_ITR$ECO_MAT_SG) == FALSE & INN_ITR$ECO_MAT_SG == 1", 
+                "is.na(INN_ITR$ECO_MAT_NSG) == FALSE & INN_ITR$ECO_MAT_NSG == 1", 
+                "is.na(INN_ITR$ECO_ENO_SG) == FALSE & INN_ITR$ECO_ENO_SG == 1", 
+                "is.na(INN_ITR$ECO_ENO_NSG) == FALSE & INN_ITR$ECO_ENO_NSG == 1", 
+                "is.na(INN_ITR$ECO_POL_SG) == FALSE & INN_ITR$ECO_POL_SG == 1", 
+                "is.na(INN_ITR$ECO_POL_NSG) == FALSE & INN_ITR$ECO_POL_NSG == 1", 
+                "is.na(INN_ITR$ECO_SUB_SG) == FALSE & INN_ITR$ECO_SUB_SG == 1", 
+                "is.na(INN_ITR$ECO_SUB_NSG) == FALSE & INN_ITR$ECO_SUB_NSG == 1", 
+                "is.na(INN_ITR$ECO_REP_SG) == FALSE & INN_ITR$ECO_REP_SG == 1", 
+                "is.na(INN_ITR$ECO_REP_NSG) == FALSE & INN_ITR$ECO_REP_NSG == 1", 
+                "is.na(INN_ITR$ECO_REC_SG) == FALSE & INN_ITR$ECO_REC_SG == 1", 
+                "is.na(INN_ITR$ECO_REC_NSG) == FALSE & INN_ITR$ECO_REC_NSG == 1", 
+                "is.na(INN_ITR$ECO_BIO_SG) == FALSE & INN_ITR$ECO_BIO_SG == 1", 
+                "is.na(INN_ITR$ECO_BIO_NSG) == FALSE & INN_ITR$ECO_BIO_NSG == 1", 
+                "INN_ITR$M092 %in% ECO_DUCO_SG$M092",
+                "INN_ITR$M092 %in% ECO_DUCO_NSG$M092",
+                "is.na(INN_ITR$ECO_ENU_SG) == FALSE & INN_ITR$ECO_ENU_SG == 1", 
+                "is.na(INN_ITR$ECO_ENU_NSG) == FALSE & INN_ITR$ECO_ENU_NSG == 1", 
+                "is.na(INN_ITR$ECO_POS_SG) == FALSE & INN_ITR$ECO_POS_SG == 1", 
+                "is.na(INN_ITR$ECO_POS_NSG) == FALSE & INN_ITR$ECO_POS_NSG == 1", 
+                "is.na(INN_ITR$ECO_REA_SG) == FALSE & INN_ITR$ECO_REA_SG == 1", 
+                "is.na(INN_ITR$ECO_REA_NSG) == FALSE & INN_ITR$ECO_REA_NSG == 1", 
+                "is.na(INN_ITR$ECO_EXT_SG) == FALSE & INN_ITR$ECO_EXT_SG == 1", 
+                "is.na(INN_ITR$ECO_EXT_NSG) == FALSE & INN_ITR$ECO_EXT_NSG == 1", 
+                "is.na(INN_ITR$ECO_BIU_SG) == FALSE & INN_ITR$ECO_BIU_SG == 1",
+                "is.na(INN_ITR$ECO_BIU_NSG) == FALSE & INN_ITR$ECO_BIU_NSG == 1")
 
 expression2 <- c("ECO_SG",
                  "ECO_NSG",
@@ -81,7 +81,7 @@ Aggregate <- data.table(matrix(ncol = 19, nrow = 0))
 names(Aggregate) <- c("DATAFLOW", "FREQ", "TIME_PERIOD", "REF_AREA", "TABLENAME", "ACTIVITY", "NUMBER_EMPL", "TYPE_ENT", "INN_PF", "INDICATOR", "CIS_INDICATOR",	"OBS_VALUE", "UNIT_MEASURE", "UNIT_MULT", "DECIMALS",	"OBS_STATUS",	"OBS_STATUS_1",	"CONF_STATUS", "COMMENT_OBS")
 for(num in 1:length(expression)){
   
-  INN_DT <- data.table(INN[eval_tidy(parse_expr(expression[num])), ])
+  INN_DT <- data.table(INN_ITR[eval_tidy(parse_expr(expression[num])), ])
   
   if(nrow(INN_DT) != 0){
     
