@@ -404,7 +404,7 @@ dim(REAS_NINN_RESC_OTH) # 1607 sor és 3 oszlop
 
 #T1 pót
 INN_ITR <- subset(worksheet_01[order(worksheet_01$M065_RETEG1, worksheet_01$M0581_2J), ], (INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1))
-dim(INN_ITR) # 2769 sor és 321 oszlop
+dim(INN_ITR) # 2769 sor és 322 oszlop
 
 #T30 pót mutatók
 ECO_WENT_SG <- subset(worksheet_01, (ECO_MAT_SG == 1 | ECO_ENO_SG == 1 | ECO_POL_SG == 1 | ECO_SUB_SG == 1 | ECO_REP_SG == 1 | ECO_REC_SG == 1 | ECO_BIO_SG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
@@ -415,14 +415,69 @@ dim(ECO_WENT_NSG) # 1379 sor és 322 oszlop
 
 ECO_DUCO_SG <- subset(worksheet_01, (ECO_ENU_SG == 1 | ECO_POS_SG == 1 | ECO_REA_SG == 1 | ECO_EXT_SG == 1 | ECO_BIU_SG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
 dim(ECO_DUCO_SG) # 512 sor és 322 oszlop
+# View(worksheet_01$ECO_ENU_NSG)
 
 ECO_DUCO_NSG <- subset(worksheet_01, (ECO_ENU_NSG == 1 | ECO_POS_NSG == 1 | ECO_REA_NSG == 1 | ECO_EXT_NSG == 1 | ECO_BIU_NSG == 1) & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1)))
 dim(ECO_DUCO_NSG) # 902 sor és 322 oszlop
+
+
+# ECO_DUCO_NSG <- subset(worksheet_01, 
+#                        (ECO_ENU_NSG == 1 | ECO_POS_NSG == 1 | ECO_REA_NSG == 1 | ECO_EXT_NSG == 1 | ECO_BIU_NSG == 1) & 
+#                          (
+#                            # Termék-innovátor (NA kezeléssel)
+#                            (!is.na(INNO_PRD_GD) & INNO_PRD_GD == 1) | 
+#                              (!is.na(INNO_PRD_SERV) & INNO_PRD_SERV == 1) | 
+#                              
+#                              # Eljárás-innovátor (NA kezeléssel)
+#                              (!is.na(INNO_PCS_PRD) & INNO_PCS_PRD == 1) | 
+#                              (!is.na(INNO_PCS_LOG) & INNO_PCS_LOG == 1) | 
+#                              (!is.na(INNO_PCS_COMM) & INNO_PCS_COMM == 1) | 
+#                              (!is.na(INNO_PCS_ACCT) & INNO_PCS_ACCT == 1) | 
+#                              (!is.na(INNO_PCS_OPROC_EXTREL) & INNO_PCS_OPROC_EXTREL == 1) | 
+#                              (!is.na(INNO_PCS_WR_DEC_HRM) & INNO_PCS_WR_DEC_HRM == 1) | 
+#                              (!is.na(INNO_PCS_SLS_SERV) & INNO_PCS_SLS_SERV == 1)
+#                          ))
+
+ECO_DUCO_NSG <- subset(worksheet_01, (ECO_ENU_NSG == 1 | ECO_POS_NSG == 1 | ECO_REA_NSG == 1 | ECO_EXT_NSG == 1 | ECO_BIU_NSG == 1) # & ((INNO_PRD_GD == 1 | INNO_PRD_SERV == 1) | (INNO_PCS_PRD == 1 | INNO_PCS_LOG == 1 | INNO_PCS_COMM == 1 | INNO_PCS_ACCT == 1 | INNO_PCS_OPROC_EXTREL == 1 | INNO_PCS_WR_DEC_HRM == 1 | INNO_PCS_SLS_SERV == 1))
+                       )
+dim(ECO_DUCO_NSG) # 1239 sor és 322 oszlop
+ECO_DUCO_NSG <- subset(ECO_DUCO_NSG, (M092 %in% INN_ITR$M092))
+dim(ECO_DUCO_NSG) # 902 sor és 322 oszlop
+# View(ECO_DUCO_NSG[, c("M092", "ECO_ENU_NSG", "ECO_POS_NSG", "ECO_REA_NSG", "ECO_EXT_NSG", "ECO_BIU_NSG", "INNO_PRD_GD", "INNO_PRD_SERV", "INNO_PCS_PRD", "INNO_PCS_LOG", "INNO_PCS_COMM", "INNO_PCS_ACCT", "INNO_PCS_OPROC_EXTREL", "INNO_PCS_WR_DEC_HRM", "INNO_PCS_SLS_SERV")])
+# # INN$M092 %in% ECO_DUCO_NSG$M092
+# worksheet_01$ECO_ENU_NSG
+sum(worksheet_01[worksheet_01$M0581_2J == "59", "ECO_ENU_NSG"] * worksheet_01[worksheet_01$M0581_2J == "59", "VGMA001_SULY"]) # 6.95571 teljes vállalati kör
+sum(INN[INN$M0581_2J == "59", "ECO_ENU_NSG"] * INN[INN$M0581_2J == "59", "VGMA001_SULY"]) # 5.95571 csak innovatív vállalati kör
+sum(INN_ITR[INN_ITR$M0581_2J == "59", "ECO_ENU_NSG"] * INN_ITR[INN_ITR$M0581_2J == "59", "VGMA001_SULY"]) # 3.01988 az innovatív vállalati körön belül az ITR 
+
+# ECO_DUCO_NSG <- subset(worksheet_01, 
+#                        (
+#                          (!is.na(ECO_ENU_NSG) & ECO_ENU_NSG == 1) | 
+#                            (!is.na(ECO_POS_NSG) & ECO_POS_NSG == 1) | 
+#                            (!is.na(ECO_REA_NSG) & ECO_REA_NSG == 1) | 
+#                            (!is.na(ECO_EXT_NSG) & ECO_EXT_NSG == 1) | 
+#                            (!is.na(ECO_BIU_NSG) & ECO_BIU_NSG == 1)
+#                        ) & 
+#                          (
+#                            # INN_ITR definíciója (Termék-innovátorok)
+#                            (!is.na(INNO_PRD_GD) & INNO_PRD_GD == 1) | 
+#                              (!is.na(INNO_PRD_SERV) & INNO_PRD_SERV == 1) | 
+#                              
+#                              # INN_ITR definíciója (Eljárás-innovátorok)
+#                              (!is.na(INNO_PCS_PRD) & INNO_PCS_PRD == 1) | 
+#                              (!is.na(INNO_PCS_LOG) & INNO_PCS_LOG == 1) | 
+#                              (!is.na(INNO_PCS_COMM) & INNO_PCS_COMM == 1) | 
+#                              (!is.na(INNO_PCS_ACCT) & INNO_PCS_ACCT == 1) | 
+#                              (!is.na(INNO_PCS_OPROC_EXTREL) & INNO_PCS_OPROC_EXTREL == 1) | 
+#                              (!is.na(INNO_PCS_WR_DEC_HRM) & INNO_PCS_WR_DEC_HRM == 1) | 
+#                              (!is.na(INNO_PCS_SLS_SERV) & INNO_PCS_SLS_SERV == 1)
+#                          ))
+# 
+# # Ellenőrizd a sorok számát!
+# dim(ECO_DUCO_NSG)
 
 ECO_SG <- unique(rbind(ECO_WENT_SG, ECO_DUCO_SG))
 dim(ECO_SG) # 968 sor és 322 oszlop
 
 ECO_NSG <- unique(rbind(ECO_WENT_NSG, ECO_DUCO_NSG))
 dim(ECO_NSG) # 1515 sor és 322 oszlop
-
-worksheet_01$COOP_PRV_EG
